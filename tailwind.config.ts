@@ -57,6 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        "surface-warm": {
+          DEFAULT: "hsl(var(--surface-warm))",
+          foreground: "hsl(var(--surface-warm-foreground))",
+        },
+        "rental-green": {
+          DEFAULT: "hsl(var(--rental-green))",
+          foreground: "hsl(var(--rental-green-foreground))",
+        },
+      },
+      backgroundImage: {
+        "hero-gradient": "var(--hero-gradient)",
+        "accent-gradient": "var(--accent-gradient)",
       },
       borderRadius: {
         lg: "var(--radius)",
