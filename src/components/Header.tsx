@@ -26,17 +26,15 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => {
-              const Icon = item.icon;
               const isActive = location.pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   to={item.href}
-                  className={`flex items-center space-x-1 text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
                     isActive ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
-                  <Icon className="h-4 w-4" />
                   <span>{item.label}</span>
                 </Link>
               );
