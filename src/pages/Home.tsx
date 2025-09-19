@@ -112,9 +112,7 @@ const Home = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-primary rounded-lg p-2">
-                  <HomeIcon className="h-5 w-5 text-primary-foreground" />
-                </div>
+                <HomeIcon className="h-6 w-6 text-primary" />
                 <span className="text-lg font-bold text-accent-foreground">RentMinder</span>
               </div>
             </div>

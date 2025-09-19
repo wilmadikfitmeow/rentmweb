@@ -19,9 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-primary rounded-lg p-2">
-              <Building2 className="h-6 w-6 text-primary-foreground" />
-            </div>
+            <Home className="h-8 w-8 text-primary" />
             <span className="text-xl font-bold text-primary">RentMinder</span>
           </Link>
 
