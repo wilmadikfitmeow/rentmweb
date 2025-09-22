@@ -1,53 +1,64 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, FileText, Key, Home as HomeIcon } from "lucide-react";
+import { CheckCircle, FileText, Key, Search, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 
 const Process = () => {
   const steps = [
     {
-      icon: FileText,
-      title: "Submit Application",
-      description: "Fill out our rental application form with your personal and employment information. We'll review your application within 24 hours.",
+      icon: Search,
+      title: "Browse Available Units",
+      description: "View our two unit types and check availability on our website.",
       details: [
-        "Complete rental application",
-        "Provide employment verification",
-        "Submit references",
-        "Background check authorization"
+        "Unit A - ₱3,500/month (1 bedroom)",
+        "Unit B - ₱6,000/month (2 bedrooms)", 
+        "Filter by floor preference",
+        "See unit specifications and photos"
+      ]
+    },
+    {
+      icon: Calendar,
+      title: "Contact Miss Balanong",
+      description: "Reach out directly via email or phone to inquire about units.",
+      details: [
+        "Send email inquiry or call directly",
+        "Specify which unit type interests you",
+        "Ask about current availability",
+        "Request viewing appointment"
+      ]
+    },
+    {
+      icon: FileText,
+      title: "Schedule Unit Viewing",
+      description: "Arrange a convenient time to visit and inspect the unit in person.",
+      details: [
+        "Meet at the property in Sitio Tiaong",
+        "Inspect the unit thoroughly",
+        "Ask questions about the rental terms",
+        "Discuss move-in timeline"
       ]
     },
     {
       icon: CheckCircle,
-      title: "Application Review",
-      description: "Our team will verify your information and conduct necessary background and credit checks to ensure qualification.",
+      title: "Direct Application Process",
+      description: "Complete the rental application directly with Miss Balanong.",
       details: [
-        "Credit score verification",
-        "Employment confirmation",
-        "Reference checks",
-        "Previous rental history review"
+        "Provide required documents in person",
+        "Submit proof of income and ID",
+        "Give references if requested",
+        "Discuss payment terms"
       ]
     },
     {
       icon: Key,
-      title: "Lease Signing",
-      description: "Once approved, we'll schedule a lease signing appointment and arrange for key handover and move-in instructions.",
+      title: "Move-In Arrangement",
+      description: "Finalize the lease agreement and receive your keys!",
       details: [
-        "Lease agreement review",
-        "Security deposit payment",
-        "First month's rent",
-        "Key handover ceremony"
-      ]
-    },
-    {
-      icon: HomeIcon,
-      title: "Move In",
-      description: "Welcome to your new home! We'll provide a move-in checklist and ensure everything is ready for your arrival.",
-      details: [
-        "Property walkthrough",
-        "Move-in inspection",
-        "Utility setup assistance",
-        "Welcome package delivery"
+        "Sign lease agreement directly",
+        "Pay security deposit and first month",
+        "Receive keys from Miss Balanong",
+        "Begin your tenancy"
       ]
     }
   ];
@@ -61,10 +72,10 @@ const Process = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Rental Process
+              Rental Process
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Simple, transparent, and efficient - discover how easy it is to rent with us
+              Simple steps to rent directly from Miss Balanong
             </p>
           </div>
         </div>
@@ -124,33 +135,36 @@ const Process = () => {
             <h2 className="text-3xl font-bold text-foreground mb-8">
               Application Requirements
             </h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <Card className="text-left">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4 text-card-foreground">Documents Needed</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Valid government ID</li>
-                    <li>• Proof of income (payslips)</li>
-                    <li>• Employment certificate</li>
-                    <li>• Previous rental references</li>
-                  </ul>
-                </CardContent>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-6">
+                <h3 className="text-xl font-bold text-card-foreground mb-4">
+                  What to Bring
+                </h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Valid government-issued ID</li>
+                  <li>• Proof of income or employment</li>
+                  <li>• References (if requested)</li>
+                  <li>• First month's rent and deposit</li>
+                  <li>• Contact information</li>
+                </ul>
               </Card>
-              <Card className="text-left">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-4 text-card-foreground">Financial Requirements</h3>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Security deposit (2 months)</li>
-                    <li>• First month's rent</li>
-                    <li>• Processing fee</li>
-                    <li>• Stable monthly income</li>
-                  </ul>
-                </CardContent>
+              
+              <Card className="p-6">
+                <h3 className="text-xl font-bold text-card-foreground mb-4">
+                  Important Notes
+                </h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Applications handled in person only</li>
+                  <li>• No online application system</li>
+                  <li>• Direct communication with landlord</li>
+                  <li>• First-come, first-served basis</li>
+                  <li>• Cash payments preferred</li>
+                </ul>
               </Card>
             </div>
-            <Link to="/listings">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
-                Start Your Application
+            <Link to="/contact">
+              <Button size="lg" className="bg-primary hover:bg-primary/90">
+                Get Contact Information
               </Button>
             </Link>
           </div>

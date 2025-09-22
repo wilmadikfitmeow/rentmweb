@@ -11,36 +11,36 @@ import Header from "@/components/Header";
 const FAQ = () => {
   const faqs = [
     {
+      question: "How do I apply for a unit?",
+      answer: "All applications are handled directly by Miss Balanong. Contact her via email or phone to inquire about available units. There is no online application system - everything is done through direct communication."
+    },
+    {
+      question: "What unit types are available?",
+      answer: "We offer two unit types: Unit A (1 bedroom, ₱3,500/month) and Unit B (2 bedrooms, ₱6,000/month). Both types are available on the 1st and 2nd floors."
+    },
+    {
+      question: "What are the rental requirements?",
+      answer: "You'll need to provide valid ID, proof of income or employment, and references if requested. Payment terms and security deposit will be discussed directly with Miss Balanong."
+    },
+    {
+      question: "Can I view the units before renting?",
+      answer: "Yes! Contact Miss Balanong directly to schedule a viewing appointment. She will meet you at the property in Sitio Tiaong, Antipolo City to show you the available units."
+    },
+    {
       question: "What is the minimum lease term?",
-      answer: "Our minimum lease term is 12 months. We offer flexible lease options and can discuss shorter terms on a case-by-case basis."
-    },
-    {
-      question: "What are the requirements to rent?",
-      answer: "You need to provide proof of income, valid ID, employment verification, and references. A security deposit of 2 months' rent and first month's rent are required upfront."
-    },
-    {
-      question: "Are pets allowed?",
-      answer: "Pet policies vary by property. Some units are pet-friendly with additional pet deposits and monthly fees. Please inquire about specific pet policies for each property."
+      answer: "Lease terms are discussed directly with Miss Balanong. Contact her to discuss your specific needs and preferences for rental duration."
     },
     {
       question: "What utilities are included?",
-      answer: "Basic utilities like water and garbage collection are typically included. Electricity, internet, and cable are usually the tenant's responsibility unless otherwise specified."
+      answer: "Utility inclusions and arrangements will be discussed directly with Miss Balanong during your inquiry. Contact her for specific details about what's included in the rent."
+    },
+    {
+      question: "How do I pay rent?",
+      answer: "Payment methods and schedules are arranged directly with Miss Balanong. She will explain the preferred payment process during your application discussion."
     },
     {
       question: "How quickly can I move in?",
-      answer: "Once your application is approved and all requirements are met, you can typically move in within 3-5 business days after lease signing."
-    },
-    {
-      question: "Is parking included?",
-      answer: "Most properties include at least one parking space. Additional parking may be available for an extra fee depending on the property."
-    },
-    {
-      question: "What is your maintenance policy?",
-      answer: "We provide 24/7 emergency maintenance and respond to all non-emergency requests within 24-48 hours. Tenants can submit requests through our online portal."
-    },
-    {
-      question: "Can I view the property before applying?",
-      answer: "Absolutely! We encourage property viewings. You can schedule a tour by contacting us directly or through our online booking system."
+      answer: "Move-in timeline depends on unit availability and completion of the rental process with Miss Balanong. Contact her directly to discuss your preferred move-in date."
     }
   ];
 
@@ -56,7 +56,7 @@ const FAQ = () => {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Find answers to common questions about our rental process and properties
+              Find answers to common questions about renting from Miss Balanong
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const FAQ = () => {
               Still Have Questions?
             </h2>
             <p className="text-muted-foreground mb-8 text-lg">
-              Can't find what you're looking for? Our team is here to help you with any questions about our rental properties.
+              Can't find what you're looking for? Contact Miss Balanong directly for any questions about the rental units.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">
@@ -104,7 +104,7 @@ const FAQ = () => {
               </Link>
               <Link to="/listings">
                 <Button size="lg" variant="outline">
-                  View Properties
+                  View Available Units
                 </Button>
               </Link>
             </div>

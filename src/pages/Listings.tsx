@@ -1,80 +1,100 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Bed, Bath, Square, Users } from "lucide-react";
+import { MapPin, Bed, Bath, Square } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import unitInterior from "@/assets/unit-interior.jpg";
 
 const Listings = () => {
+  const [selectedFloor, setSelectedFloor] = useState<string>("all");
+
   const units = [
     {
       id: "a1",
-      title: "Unit A1 - TWO FLOOR UNIT",
-      bedrooms: 2,
+      title: "Unit A - First Floor",
+      type: "A",
+      floor: "1st",
+      bedrooms: 1,
       bathrooms: 1,
-      sqm: 30,
-      price: 6500,
+      sqm: 25,
+      price: 3500,
       status: "Available",
-      description: "Ideal for small families",
+      description: "Cozy single bedroom unit perfect for individuals or couples",
       image: unitInterior
     },
     {
-      id: "a2", 
-      title: "Unit A2 - TWO FLOOR UNIT",
-      bedrooms: 2,
+      id: "a2",
+      title: "Unit A - First Floor",
+      type: "A", 
+      floor: "1st",
+      bedrooms: 1,
       bathrooms: 1,
-      sqm: 30,
-      price: 6500,
+      sqm: 25,
+      price: 3500,
       status: "Available",
-      description: "Open CR, Kitchen, Laundry Space",
+      description: "Open layout with kitchen and bathroom",
       image: unitInterior
     },
     {
       id: "a3",
-      title: "Unit A3 - TWO FLOOR UNIT", 
-      bedrooms: 2,
+      title: "Unit A - Second Floor",
+      type: "A",
+      floor: "2nd", 
+      bedrooms: 1,
       bathrooms: 1,
-      sqm: 30,
-      price: 6500,
+      sqm: 25,
+      price: 3500,
       status: "Available",
-      description: "Ideal for small families",
+      description: "Upstairs unit with natural lighting",
       image: unitInterior
     },
     {
       id: "b1",
-      title: "Unit B1 - TWO FLOOR UNIT",
-      bedrooms: 1,
+      title: "Unit B - First Floor",
+      type: "B",
+      floor: "1st",
+      bedrooms: 2,
       bathrooms: 1,
-      sqm: 20,
-      price: 3500,
+      sqm: 35,
+      price: 6000,
       status: "Available", 
-      description: "Open CR, Kitchen, Laundry Space",
+      description: "Spacious two-bedroom unit for small families",
       image: unitInterior
     },
     {
       id: "b2",
-      title: "Unit B2 - TWO FLOOR UNIT",
-      bedrooms: 1,
+      title: "Unit B - Second Floor",
+      type: "B",
+      floor: "2nd",
+      bedrooms: 2,
       bathrooms: 1,
-      sqm: 20,
-      price: 3500,
-      status: "Coming Soon",
-      description: "Ideal for small families",
+      sqm: 35,
+      price: 6000,
+      status: "Available",
+      description: "Two-bedroom unit with elevated views",
       image: unitInterior
     },
     {
       id: "b3",
-      title: "Unit B3 - TWO FLOOR UNIT",
-      bedrooms: 1,
+      title: "Unit B - Second Floor",
+      type: "B",
+      floor: "2nd",
+      bedrooms: 2,
       bathrooms: 1, 
-      sqm: 20,
-      price: 3500,
+      sqm: 35,
+      price: 6000,
       status: "Available",
-      description: "Open CR, Kitchen, Laundry Space",
+      description: "Family-friendly unit with ample space",
       image: unitInterior
     }
   ];
+
+  const filteredUnits = units.filter(unit => {
+    if (selectedFloor === "all") return true;
+    return unit.floor === selectedFloor;
+  });
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,24 +122,52 @@ const Listings = () => {
               Available Units for Rent - Sitio Tiaong, Antipolo City
             </h2>
             <p className="text-muted-foreground">
-              Simple, quiet living with spacious units and direct landlord communication.
-              Text or email to inquire. First-come, first-served.
+              Two unit types available. Contact Miss Balanong directly for inquiries and viewing appointments.
             </p>
+          </div>
+
+          {/* Unit Types Summary */}
+          <div className="grid md:grid-cols-2 gap-4 mb-8 p-6 bg-surface-clean rounded-lg">
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-primary mb-2">Unit A</h3>
+              <p className="text-2xl font-bold text-primary mb-1">₱3,500/month</p>
+              <p className="text-sm text-muted-foreground">1 bedroom • 1 bathroom • 25 sqm</p>
+            </div>
+            <div className="text-center">
+              <h3 className="text-xl font-semibold text-primary mb-2">Unit B</h3>
+              <p className="text-2xl font-bold text-primary mb-1">₱6,000/month</p>
+              <p className="text-sm text-muted-foreground">2 bedrooms • 1 bathroom • 35 sqm</p>
+            </div>
           </div>
 
           {/* Filter Buttons */}
           <div className="flex flex-wrap gap-2 mb-8">
-            <Button variant="outline" size="sm">Unit A Available</Button>
-            <Button variant="outline" size="sm">Unit B Available</Button>
-            <Button variant="outline" size="sm" className="ml-auto">
-              <MapPin className="h-4 w-4 mr-1" />
-              Filter
+            <Button 
+              variant={selectedFloor === "all" ? "default" : "outline"} 
+              size="sm" 
+              onClick={() => setSelectedFloor("all")}
+            >
+              All Units
+            </Button>
+            <Button 
+              variant={selectedFloor === "1st" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setSelectedFloor("1st")}
+            >
+              1st Floor Units
+            </Button>
+            <Button 
+              variant={selectedFloor === "2nd" ? "default" : "outline"} 
+              size="sm"
+              onClick={() => setSelectedFloor("2nd")}
+            >
+              2nd Floor Units
             </Button>
           </div>
 
           {/* Units Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {units.map((unit) => (
+            {filteredUnits.map((unit) => (
               <Card key={unit.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-video bg-muted relative">
                   <img 
@@ -175,19 +223,23 @@ const Listings = () => {
             ))}
           </div>
 
-          {/* Pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm" disabled>
-                Previous
-              </Button>
-              <Button variant="default" size="sm">1</Button>
-              <Button variant="outline" size="sm">2</Button>
-              <Button variant="outline" size="sm">3</Button>
-              <Button variant="outline" size="sm">4</Button>
-              <Button variant="outline" size="sm">
-                Next
-              </Button>
+          {/* Contact Information */}
+          <div className="mt-12 p-6 bg-surface-clean rounded-lg text-center">
+            <h3 className="text-xl font-bold text-foreground mb-4">Ready to Rent?</h3>
+            <p className="text-muted-foreground mb-4">
+              Contact Miss Balanong directly for unit viewing and rental inquiries
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link to="/contact">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  Get Contact Details
+                </Button>
+              </Link>
+              <Link to="/process">
+                <Button size="lg" variant="outline">
+                  Learn About Process
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
