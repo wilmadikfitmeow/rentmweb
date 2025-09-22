@@ -2,6 +2,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { 
+  Pagination, 
+  PaginationContent, 
+  PaginationItem, 
+  PaginationLink, 
+  PaginationNext, 
+  PaginationPrevious,
+  PaginationEllipsis
+} from "@/components/ui/pagination";
 import { MapPin, Bed, Bath, Square } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -9,6 +18,8 @@ import unitInterior from "@/assets/unit-interior.jpg";
 
 const Listings = () => {
   const [selectedFloor, setSelectedFloor] = useState<string>("all");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const unitsPerPage = 6;
 
   const units = [
     {
@@ -96,6 +107,16 @@ const Listings = () => {
     return unit.floor === selectedFloor;
   });
 
+  const totalPages = Math.ceil(filteredUnits.length / unitsPerPage);
+  const startIndex = (currentPage - 1) * unitsPerPage;
+  const endIndex = startIndex + unitsPerPage;
+  const currentUnits = filteredUnits.slice(startIndex, endIndex);
+
+  const handleFloorChange = (floor: string) => {
+    setSelectedFloor(floor);
+    setCurrentPage(1); // Reset to first page when filter changes
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -122,7 +143,7 @@ const Listings = () => {
               Available Units for Rent - Sitio Tiaong, Antipolo City
             </h2>
             <p className="text-muted-foreground">
-              Two unit types available. Contact Miss Balanong directly for inquiries and viewing appointments.
+              Two unit types available. Contact the property manager directly for inquiries and viewing appointments.
             </p>
           </div>
 
@@ -145,29 +166,29 @@ const Listings = () => {
             <Button 
               variant={selectedFloor === "all" ? "default" : "outline"} 
               size="sm" 
-              onClick={() => setSelectedFloor("all")}
+              onClick={() => handleFloorChange("all")}
             >
               All Units
             </Button>
             <Button 
               variant={selectedFloor === "1st" ? "default" : "outline"} 
               size="sm"
-              onClick={() => setSelectedFloor("1st")}
+              onClick={() => handleFloorChange("1st")}
             >
               1st Floor Units
             </Button>
             <Button 
               variant={selectedFloor === "2nd" ? "default" : "outline"} 
               size="sm"
-              onClick={() => setSelectedFloor("2nd")}
+              onClick={() => handleFloorChange("2nd")}
             >
               2nd Floor Units
             </Button>
           </div>
 
           {/* Units Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredUnits.map((unit) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {currentUnits.map((unit) => (
               <Card key={unit.id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="aspect-video bg-muted relative">
                   <img 
@@ -223,11 +244,60 @@ const Listings = () => {
             ))}
           </div>
 
+          {/* Pagination */}
+          {totalPages > 1 && (
+            <div className="flex justify-center">
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious 
+                      href="#" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage > 1) setCurrentPage(currentPage - 1);
+                      }}
+                      className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+                    />
+                  </PaginationItem>
+                  
+                  {[...Array(totalPages)].map((_, index) => {
+                    const page = index + 1;
+                    return (
+                      <PaginationItem key={page}>
+                        <PaginationLink
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setCurrentPage(page);
+                          }}
+                          isActive={currentPage === page}
+                        >
+                          {page}
+                        </PaginationLink>
+                      </PaginationItem>
+                    );
+                  })}
+                  
+                  <PaginationItem>
+                    <PaginationNext 
+                      href="#" 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+                      }}
+                      className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
+
           {/* Contact Information */}
           <div className="mt-12 p-6 bg-surface-clean rounded-lg text-center">
             <h3 className="text-xl font-bold text-foreground mb-4">Ready to Rent?</h3>
             <p className="text-muted-foreground mb-4">
-              Contact Miss Balanong directly for unit viewing and rental inquiries
+              Contact the property manager directly for unit viewing and rental inquiries
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">

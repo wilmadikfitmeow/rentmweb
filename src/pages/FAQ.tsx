@@ -12,7 +12,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "How do I apply for a unit?",
-      answer: "All applications are handled directly by Miss Balanong. Contact her via email or phone to inquire about available units. There is no online application system - everything is done through direct communication."
+      answer: "All applications are handled directly by the property manager. Contact via email or phone to inquire about available units. There is no online application system - everything is done through direct communication."
     },
     {
       question: "What unit types are available?",
@@ -20,27 +20,27 @@ const FAQ = () => {
     },
     {
       question: "What are the rental requirements?",
-      answer: "You'll need to provide valid ID, proof of income or employment, and references if requested. Payment terms and security deposit will be discussed directly with Miss Balanong."
+      answer: "You'll need to provide valid ID, proof of income or employment, and references if requested. Payment terms and security deposit will be discussed directly with the property manager."
     },
     {
       question: "Can I view the units before renting?",
-      answer: "Yes! Contact Miss Balanong directly to schedule a viewing appointment. She will meet you at the property in Sitio Tiaong, Antipolo City to show you the available units."
+      answer: "Yes! Contact the property manager directly to schedule a viewing appointment. They will meet you at the property in Sitio Tiaong, Antipolo City to show you the available units."
     },
     {
       question: "What is the minimum lease term?",
-      answer: "Lease terms are discussed directly with Miss Balanong. Contact her to discuss your specific needs and preferences for rental duration."
+      answer: "Lease terms are discussed directly with the property manager. Contact them to discuss your specific needs and preferences for rental duration."
     },
     {
       question: "What utilities are included?",
-      answer: "Utility inclusions and arrangements will be discussed directly with Miss Balanong during your inquiry. Contact her for specific details about what's included in the rent."
+      answer: "Utility inclusions and arrangements will be discussed directly with the property manager during your inquiry. Contact them for specific details about what's included in the rent."
     },
     {
       question: "How do I pay rent?",
-      answer: "Payment methods and schedules are arranged directly with Miss Balanong. She will explain the preferred payment process during your application discussion."
+      answer: "Payment methods and schedules are arranged directly with the property manager. They will explain the preferred payment process during your application discussion."
     },
     {
       question: "How quickly can I move in?",
-      answer: "Move-in timeline depends on unit availability and completion of the rental process with Miss Balanong. Contact her directly to discuss your preferred move-in date."
+      answer: "Move-in timeline depends on unit availability and completion of the rental process with the property manager. Contact them directly to discuss your preferred move-in date."
     }
   ];
 
@@ -56,7 +56,7 @@ const FAQ = () => {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Find answers to common questions about renting from Miss Balanong
+              Find answers to common questions about renting these units
             </p>
           </div>
         </div>
@@ -94,7 +94,7 @@ const FAQ = () => {
               Still Have Questions?
             </h2>
             <p className="text-muted-foreground mb-8 text-lg">
-              Can't find what you're looking for? Contact Miss Balanong directly for any questions about the rental units.
+              Can't find what you're looking for? Contact the property manager directly for any questions about the rental units.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact">

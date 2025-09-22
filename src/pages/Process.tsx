@@ -19,7 +19,7 @@ const Process = () => {
     },
     {
       icon: Calendar,
-      title: "Contact Miss Balanong",
+      title: "Contact Property Manager",
       description: "Reach out directly via email or phone to inquire about units.",
       details: [
         "Send email inquiry or call directly",
@@ -42,7 +42,7 @@ const Process = () => {
     {
       icon: CheckCircle,
       title: "Direct Application Process",
-      description: "Complete the rental application directly with Miss Balanong.",
+      description: "Complete the rental application directly with the property manager.",
       details: [
         "Provide required documents in person",
         "Submit proof of income and ID",
@@ -57,7 +57,7 @@ const Process = () => {
       details: [
         "Sign lease agreement directly",
         "Pay security deposit and first month",
-        "Receive keys from Miss Balanong",
+        "Receive keys from property manager",
         "Begin your tenancy"
       ]
     }
@@ -75,7 +75,7 @@ const Process = () => {
               Rental Process
             </h1>
             <p className="text-xl text-primary-foreground/90">
-              Simple steps to rent directly from Miss Balanong
+              Simple steps to rent directly from the property manager
             </p>
           </div>
         </div>
@@ -158,7 +158,6 @@ const Process = () => {
                   <li>• No online application system</li>
                   <li>• Direct communication with landlord</li>
                   <li>• First-come, first-served basis</li>
-                  <li>• Cash payments preferred</li>
                 </ul>
               </Card>
             </div>
