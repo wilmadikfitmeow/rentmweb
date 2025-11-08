@@ -122,17 +122,21 @@ const Listings = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-hero-gradient text-primary-foreground py-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-black/10"></div>
+      <section className="relative bg-hero-gradient text-primary-foreground py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-primary/80"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex items-center space-x-2 text-sm mb-4">
-            <Link to="/" className="hover:underline">Home</Link>
-            <span>/</span>
-            <span>Unit Listing</span>
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6">
+              Unit Listing
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-primary-foreground/90">
+              Browse our available rental units in Sitio Tiaong, Antipolo City
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold">Unit Listing</h1>
         </div>
-        <div className="absolute -bottom-5 left-0 w-full h-20 bg-accent-gradient rounded-t-[100%] opacity-40"></div>
+        
+        {/* Decorative elements */}
+        <div className="absolute -bottom-10 left-0 w-full h-32 bg-accent-gradient rounded-t-[100%] opacity-30"></div>
       </section>
 
       {/* Listings Section */}
