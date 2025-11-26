@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Home, Building2, HelpCircle } from "lucide-react";
+import { Home, Building2, HelpCircle, Phone } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
@@ -9,6 +9,7 @@ const Header = () => {
     { href: "/", label: "Home", icon: Home },
     { href: "/listings", label: "Unit Listing", icon: Building2 },
     { href: "/faq", label: "FAQ", icon: HelpCircle },
+    { href: "/contact", label: "Contact Us", icon: Phone },
   ];
 
   return (
