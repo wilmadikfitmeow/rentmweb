@@ -5,10 +5,70 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { CheckCircle, FileText, Key, Search, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 
 const FAQ = () => {
+  const processSteps = [
+    {
+      icon: Search,
+      title: "Browse Available Units",
+      description: "View our two unit types and check availability on our website.",
+      details: [
+        "Unit A - ₱3,500/month (1 bedroom)",
+        "Unit B - ₱6,000/month (2 bedrooms)", 
+        "Filter by floor preference",
+        "See unit specifications and photos"
+      ]
+    },
+    {
+      icon: Calendar,
+      title: "Contact Property Manager",
+      description: "Reach out directly via email or phone to inquire about units.",
+      details: [
+        "Send email inquiry or call directly",
+        "Specify which unit type interests you",
+        "Ask about current availability",
+        "Request viewing appointment"
+      ]
+    },
+    {
+      icon: FileText,
+      title: "Schedule Unit Viewing",
+      description: "Arrange a convenient time to visit and inspect the unit in person.",
+      details: [
+        "Meet at the property in Sitio Tiaong",
+        "Inspect the unit thoroughly",
+        "Ask questions about the rental terms",
+        "Discuss move-in timeline"
+      ]
+    },
+    {
+      icon: CheckCircle,
+      title: "Direct Application Process",
+      description: "Complete the rental application directly with the property manager.",
+      details: [
+        "Provide required documents in person",
+        "Submit proof of income and ID",
+        "Give references if requested",
+        "Discuss payment terms"
+      ]
+    },
+    {
+      icon: Key,
+      title: "Move-In Arrangement",
+      description: "Finalize the lease agreement and receive your keys!",
+      details: [
+        "Sign lease agreement directly",
+        "Pay security deposit and first month",
+        "Receive keys from property manager",
+        "Begin your tenancy"
+      ]
+    }
+  ];
+
   const faqs = [
     {
       question: "How do I apply for a unit?",
@@ -58,6 +118,94 @@ const FAQ = () => {
             <p className="text-xl text-primary-foreground/90">
               Find answers to common questions about renting these units
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Rental Process Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Rental Process
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Simple steps to rent directly from the property manager
+            </p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            {processSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={index} className="mb-8 last:mb-0">
+                  <Card className="bg-card border-0 shadow-lg hover:shadow-xl transition-shadow">
+                    <CardContent className="p-6 md:p-8">
+                      <div className="flex flex-col md:flex-row items-start gap-4 md:gap-6">
+                        <div className="flex-shrink-0">
+                          <div className="bg-primary rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center">
+                            <Icon className="h-6 w-6 md:h-8 md:w-8 text-primary-foreground" />
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-3">
+                            <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
+                              Step {index + 1}
+                            </span>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold mb-3 text-card-foreground">
+                            {step.title}
+                          </h3>
+                          <p className="text-muted-foreground mb-4 leading-relaxed">
+                            {step.description}
+                          </p>
+                          <div className="grid md:grid-cols-2 gap-2">
+                            {step.details.map((detail, detailIndex) => (
+                              <div key={detailIndex} className="flex items-center gap-2">
+                                <CheckCircle className="h-4 w-4 text-rental-green flex-shrink-0" />
+                                <span className="text-sm text-muted-foreground">{detail}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              );
+            })}
+          </div>
+          
+          {/* Requirements Section */}
+          <div className="max-w-3xl mx-auto mt-16">
+            <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
+              Application Requirements
+            </h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <Card className="p-6">
+                <h4 className="text-lg font-bold text-card-foreground mb-4">
+                  What to Bring
+                </h4>
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li>• Valid government-issued ID</li>
+                  <li>• Proof of income or employment</li>
+                  <li>• References (if requested)</li>
+                  <li>• First month's rent and deposit</li>
+                  <li>• Contact information</li>
+                </ul>
+              </Card>
+              
+              <Card className="p-6">
+                <h4 className="text-lg font-bold text-card-foreground mb-4">
+                  Important Notes
+                </h4>
+                <ul className="space-y-2 text-muted-foreground text-sm">
+                  <li>• Applications handled in person only</li>
+                  <li>• No online application system</li>
+                  <li>• Direct communication with landlord</li>
+                  <li>• First-come, first-served basis</li>
+                </ul>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
