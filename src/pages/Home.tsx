@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Search, MessageSquare, Home as HomeIcon } from "lucide-react";
+import { Search, MessageSquare, Home as HomeIcon, Smartphone, CreditCard, Bell } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import heroProperty from "@/assets/hero-property.jpg";
@@ -87,8 +87,61 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* App Features Section */}
       <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <Card className="bg-gradient-to-br from-primary to-primary/80 border-0 shadow-2xl overflow-hidden">
+              <CardContent className="p-8 md:p-12">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="text-primary-foreground">
+                    <div className="inline-block bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
+                      Coming Soon
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                      Rent Made Easy with Our App
+                    </h2>
+                    <p className="text-lg mb-6 text-primary-foreground/90">
+                      Experience hassle-free rental management with our upcoming mobile app designed for modern tenants.
+                    </p>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CreditCard className="h-6 w-6 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold mb-1">Easy Payments</h4>
+                          <p className="text-sm text-primary-foreground/80">Pay rent securely online with multiple payment options</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Bell className="h-6 w-6 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold mb-1">Smart Reminders</h4>
+                          <p className="text-sm text-primary-foreground/80">Never miss a payment with automated notifications</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <Smartphone className="h-6 w-6 flex-shrink-0 mt-1" />
+                        <div>
+                          <h4 className="font-semibold mb-1">All-in-One Platform</h4>
+                          <p className="text-sm text-primary-foreground/80">Manage everything from maintenance requests to lease documents</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-primary-foreground/20">
+                      <Smartphone className="h-48 w-48 text-primary-foreground/80" />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 bg-surface-clean">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-foreground mb-4">
