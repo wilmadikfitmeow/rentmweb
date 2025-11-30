@@ -59,7 +59,7 @@ const Contact = () => {
               {/* Contact Form */}
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">
-                  Send Us a Message
+                  We'd Love to Hear from You
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8">
                   Fill out the form below and we'll get back to you as soon as possible.
