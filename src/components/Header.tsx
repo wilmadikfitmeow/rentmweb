@@ -40,15 +40,6 @@ const Header = () => {
             })}
           </nav>
 
-          {/* Auth Buttons */}
-          <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="sm">
-              Log In
-            </Button>
-            <Button size="sm" className="bg-primary hover:bg-primary/90">
-              Sign Up
-            </Button>
-          </div>
         </div>
       </div>
     </header>
