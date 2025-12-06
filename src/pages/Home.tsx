@@ -95,9 +95,6 @@ const Home = () => {
               <CardContent className="p-8 md:p-12">
                 <div className="grid md:grid-cols-2 gap-8 items-center">
                   <div className="text-primary-foreground">
-                    <div className="inline-block bg-accent text-accent-foreground px-4 py-2 rounded-full text-sm font-medium mb-4">
-                      Coming Soon
-                    </div>
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                       Rent Made Easy with Our App
                     </h2>
